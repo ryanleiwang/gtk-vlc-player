@@ -104,11 +104,11 @@ static void vlc_player_load_media(GtkVlcPlayer *player, libvlc_media_t *media);
 
 /** @private */
 struct _GtkVlcPlayerPrivate {
-	GtkObject		*time_adjustment;
+	GtkWidget		*time_adjustment;
 	gulong			time_adj_on_value_changed_id;
 	gulong			time_adj_on_changed_id;
 
-	GtkObject		*volume_adjustment;
+	GtkWidget		*volume_adjustment;
 	gulong			vol_adj_on_value_changed_id;
 
 	libvlc_instance_t	*vlc_inst;
@@ -778,7 +778,7 @@ gtk_vlc_player_set_time_adjustment(GtkVlcPlayer *player, GtkAdjustment *adj)
 				    player->priv->time_adj_on_value_changed_id);
 
 	g_object_unref(player->priv->time_adjustment);
-	player->priv->time_adjustment = GTK_OBJECT(adj);
+	player->priv->time_adjustment = GTK_WIDGET(adj);
 	g_object_ref_sink(player->priv->time_adjustment);
 
 	/*
@@ -849,7 +849,7 @@ gtk_vlc_player_set_volume_adjustment(GtkVlcPlayer *player, GtkAdjustment *adj)
 				    player->priv->vol_adj_on_value_changed_id);
 
 	g_object_unref(player->priv->volume_adjustment);
-	player->priv->volume_adjustment = GTK_OBJECT(adj);
+	player->priv->volume_adjustment = GTK_WIDGET(adj);
 	g_object_ref_sink(player->priv->volume_adjustment);
 
 	gtk_adjustment_configure(GTK_ADJUSTMENT(player->priv->volume_adjustment),

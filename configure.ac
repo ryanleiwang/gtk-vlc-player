@@ -42,7 +42,7 @@ AC_CHECK_PROG(DOXYGEN, doxygen, doxygen)
 #
 # Checks for libraries.
 #
-PKG_CHECK_MODULES(LIBGTK, [gtk+-2.0 gthread-2.0])
+PKG_CHECK_MODULES(LIBGTK, [gtk+-3.0 gthread-2.0])
 
 PKG_CHECK_EXISTS([gladeui-1.0],
 		 [glade3_catalogsdir=`$PKG_CONFIG --variable=catalogdir gladeui-1.0`])
